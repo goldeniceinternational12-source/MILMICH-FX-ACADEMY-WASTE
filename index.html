@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MILMICH FX ACADEMY | Environmental & Waste Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5f2a;
+            --primary-light: #2e8b3d;
+            --accent: #f4a261;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --danger: #d62828;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 10px 5%;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--gray);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 85px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, rgba(26, 95, 42, 0.85), rgba(26, 26, 46, 0.9)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+            background-size: 60px 60px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 162, 97, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-top: 25px;
+        }
+
+        /* Why Clean Environment */
+        .why-clean {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--light);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotateY(360deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(to bottom, var(--light), var(--white));
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 20px 20px;
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Health Hazards */
+        .health-hazards {
+            background: var(--dark);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .health-hazards::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(244, 162, 97, 0.1), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .health-hazards .section-header h2 {
+            color: var(--white);
+        }
+
+        .health-hazards .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .hazards-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .hazards-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .hazards-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hazards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .hazard-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid var(--danger);
+            transition: all 0.3s;
+        }
+
+        .hazard-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(10px);
+        }
+
+        .hazard-icon {
+            min-width: 50px;
+            height: 50px;
+            background: var(--danger);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--white);
+        }
+
+        .hazard-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .hazard-text p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Constitution / Policy Section */
+        .constitution {
+            background: var(--white);
+            position: relative;
+        }
+
+        .constitution-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--light);
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border: 1px solid rgba(26, 95, 42, 0.1);
+            position: relative;
+        }
+
+        .constitution-content::before {
+            content: '\f0eb';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 30px rgba(26, 95, 42, 0.3);
+        }
+
+        .constitution-content h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        .constitution-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .constitution-point {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .constitution-point i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .constitution-point p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Contact / CTA Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0 50 Q 25 30 50 50 T 100 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+            background-size: 100px 100px;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: #25D366;
+            color: var(--white);
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+            margin-bottom: 30px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.5rem;
+        }
+
+        .phone-display {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            color: var(--accent);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 30px;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 50px 5% 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .footer-brand h3 {
+            font-size: 1.2rem;
+        }
+
+        .footer-brand h3 span {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background: var(--white);
+            z-index: 1001;
+            padding: 80px 30px 30px;
+            transition: right 0.4s ease;
+            box-shadow: -10px 0 50px rgba(0,0,0,0.2);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 1.5rem;
+            color: var(--dark);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .mobile-menu-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .mobile-menu-links a i {
+            color: var(--primary);
+            width: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hazards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hazards-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                margin-top: 75px;
+                min-height: 80vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 60px 5%;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .constitution-content {
+                padding: 40px 25px;
+            }
+            
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+            
+            .phone-display {
+                font-size: 1.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .gallery-item {
+                height: 220px;
+            }
+            
+            .float-whatsapp {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+            
+            .hazard-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .constitution-points {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">
+            <img src="./ChatGPT Image Jun 22, 2026, 12_54_21 PM.png" alt="MILMICH FX ACADEMY Logo">
+            <div class="logo-text">
+                MILMICH FX
+                <span>ACADEMY</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#why-clean">Why Clean?</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#health">Health Risks</a></li>
+            <li><a href="#constitution">Policy</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-menu-links">
+            <li><a href="#home" onclick="toggleMenu()"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#why-clean" onclick="toggleMenu()"><i class="fas fa-leaf"></i> Why Clean?</a></li>
+            <li><a href="#gallery" onclick="toggleMenu()"><i class="fas fa-images"></i> Gallery</a></li>
+            <li><a href="#health" onclick="toggleMenu()"><i class="fas fa-heart-pulse"></i> Health Risks</a></li>
+            <li><a href="#constitution" onclick="toggleMenu()"><i class="fas fa-gavel"></i> Policy</a></li>
+            <li><a href="#contact" onclick="toggleMenu()"><i class="fas fa-phone"></i> Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">Environmental & Waste Management</div>
+            <h1>Let Your Environment Be <span>Clean</span> At All Times</h1>
+            <p>A clean environment is the foundation of a healthy life. We advocate for constitutional environmental protection and professional waste management services for homes, businesses, and communities.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/2348108436487" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Call Us on WhatsApp
+                </a>
+                <a href="#why-clean" class="btn btn-outline">
+                    <i class="fas fa-arrow-down"></i> Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Clean Environment -->
+    <section class="why-clean" id="why-clean">
+        <div class="section-header reveal">
+            <h2>Why Clean Our Environment?</h2>
+            <p>Understanding the critical importance of environmental cleanliness for our survival, health, and the future of our planet.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-heart-pulse"></i>
+                </div>
+                <h3>Protects Public Health</h3>
+                <p>Clean environments reduce the spread of diseases, prevent respiratory issues, and ensure safe drinking water for all communities.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <h3>Preserves Ecosystems</h3>
+                <p>Proper waste management protects wildlife, maintains biodiversity, and ensures our natural habitats remain thriving for generations.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Boosts Economic Growth</h3>
+                <p>Clean cities attract tourism, increase property values, and reduce healthcare costs, contributing to a stronger economy.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-smog"></i>
+                </div>
+                <h3>Reduces Air Pollution</h3>
+                <p>Proper disposal and recycling minimize harmful emissions, improving air quality and combating climate change effectively.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3>Safeguards Water Sources</h3>
+                <p>Preventing waste from contaminating rivers and groundwater ensures sustainable access to clean water for drinking and agriculture.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Enhances Quality of Life</h3>
+                <p>Living in a clean environment improves mental health, productivity, and overall happiness for every individual in society.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="section-header reveal">
+            <h2>Types of Waste & Environmental Impact</h2>
+            <p>Visual examples of waste types and the contrast between clean and polluted environments.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/9ca701fe05fdffc4d2aff74add86676b91dd9778.jpg" alt="Clean vs Polluted Environment">
+                <div class="gallery-overlay">
+                    <h4>Clean vs. Polluted</h4>
+                    <p>The stark contrast between a healthy environment and industrial pollution.</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://kimi-web-img.moonshot.cn/img/dtmmix.co.uk/4ba5f03b2f28e4c2df4821244bfc7e99c1eda0b6.jpg" alt="5 Types of Waste">
+                <div class="gallery-overlay">
+                    <h4>5 Types of Waste</h4>
+                    <p>Organic, Hazardous, Solid, Liquid, and Recyclable waste categories.</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://kimi-web-img.moonshot.cn/img/c8.alamy.com/54a94ed9fd1b0fe966aa620254865e1d120c2a44.jpg" alt="Trash Cans Collection">
+                <div class="gallery-overlay">
+                    <h4>Proper Waste Collection</h4>
+                    <p>Organized trash and recycling bins for effective waste segregation.</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://kimi-web-img.moonshot.cn/img/waste4change.com/c8cfcf9513c13c10387be53c9cb5a1bdd9580235.jpg" alt="Environmental Pollution">
+                <div class="gallery-overlay">
+                    <h4>Environmental Pollution</h4>
+                    <p>The devastating impact of waste accumulation on our waterways and cities.</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://kimi-web-img.moonshot.cn/img/binblasters.com/e764e5bdba6308eeba3aaa442fe2f4690872f727.jpg" alt="Recycling Bins">
+                <div class="gallery-overlay">
+                    <h4>Recycling Systems</h4>
+                    <p>Color-coded bins for paper, plastic, and cans to promote recycling.</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://kimi-web-img.moonshot.cn/img/organicabiotech.com/ea1a30996605a2e79b160f8f97648107cd758ed1.jpg" alt="Garbage Dump">
+                <div class="gallery-overlay">
+                    <h4>Illegal Dumping Sites</h4>
+                    <p>What our communities look like when waste management is neglected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Hazards -->
+    <section class="health-hazards" id="health">
+        <div class="section-header reveal">
+            <h2>Health Hazards of Dirty Environments</h2>
+            <p>When we fail to clean our waste, we invite serious health complications that affect entire communities.</p>
+        </div>
+        <div class="hazards-container">
+            <div class="hazards-image reveal">
+                <img src="https://kimi-web-img.moonshot.cn/img/static.wixstatic.com/e2e7d45f33668b7a9999792b2f258921fd8c4986.jpg" alt="Medical Waste Health Hazards">
+            </div>
+            <div class="hazards-list">
+                <div class="hazard-item reveal">
+                    <div class="hazard-icon">
+                        <i class="fas fa-virus"></i>
+                    </div>
+                    <div class="hazard-text">
+                        <h4>Spread of Infectious Diseases</h4>
+                        <p>Uncollected waste becomes a breeding ground for bacteria, viruses, and parasites that cause cholera, typhoid, and hepatitis.</p>
+                    </div>
+                </div>
+                <div class="hazard-item reveal">
+                    <div class="hazard-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <div class="hazard-text">
+                        <h4>Respiratory Problems</h4>
+                        <p>Burning waste and decomposing garbage release toxic fumes that cause asthma, bronchitis, and lung cancer.</p>
+                    </div>
+                </div>
+                <div class="hazard-item reveal">
+                    <div class="hazard-icon">
+                        <i class="fas fa-mosquito"></i>
+                    </div>
+                    <div class="hazard-text">
+                        <h4>Vector-Borne Diseases</h4>
+                        <p>Stagnant water in waste attracts mosquitoes, leading to malaria, dengue fever, and other deadly vector-borne illnesses.</p>
+                    </div>
+                </div>
+                <div class="hazard-item reveal">
+                    <div class="hazard-icon">
+                        <i class="fas fa-skull-crossbones"></i>
+                    </div>
+                    <div class="hazard-text">
+                        <h4>Chronic Toxicity</h4>
+                        <p>Exposure to hazardous waste chemicals can lead to neurological damage, reproductive disorders, and various cancers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Constitution / Policy -->
+    <section class="constitution" id="constitution">
+        <div class="section-header reveal">
+            <h2>Why Government Must Act</h2>
+            <p>Environmental cleanliness should be enshrined in our constitution as a fundamental right and duty.</p>
+        </div>
+        <div class="constitution-content reveal">
+            <h3>Environmental Protection as a Constitutional Mandate</h3>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Governments must recognize that a clean environment is not optional—it is essential for national development and citizen welfare. Here is why environmental protection must be constitutionally guaranteed:
+            </p>
+            <div class="constitution-points">
+                <div class="constitution-point">
+                    <i class="fas fa-check-circle"></i>
+                    <p><strong>Right to Health:</strong> Every citizen deserves a healthy environment as a fundamental human right protected by law.</p>
+                </div>
+                <div class="constitution-point">
+                    <i class="fas fa-check-circle"></i>
+                    <p><strong>Enforceable Standards:</strong> Constitutional backing ensures strict penalties for pollution and illegal dumping.</p>
+                </div>
+                <div class="constitution-point">
+                    <i class="fas fa-check-circle"></i>
+                    <p><strong>Funding Allocation:</strong> Mandates government budget allocation for waste management infrastructure and services.</p>
+                </div>
+                <div class="constitution-point">
+                    <i class="fas fa-check-circle"></i>
+                    <p><strong>Corporate Accountability:</strong> Holds industries legally responsible for their waste and environmental footprint.</p>
+                </div>
+                <div class="constitution-point">
+                    <i class="fas fa-check-circle"></i>
+                    <p><strong>Future Generations:</strong> Protects the rights of unborn children to inherit a clean, sustainable planet.</p>
+                </div>
+                <div class="constitution-point">
+                    <i class="fas fa-check-circle"></i>
+                    <p><strong>Public Participation:</strong> Empowers citizens to demand clean environments and report violations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content reveal">
+            <h2>Let Your Environment Be Clean At All Times</h2>
+            <p>Don't let waste pile up and threaten your health. Contact us today for professional waste removal and environmental cleaning services. <strong>Health is Wealth!</strong></p>
+            
+            <a href="https://wa.me/2348108436487" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                Message Us on WhatsApp
+            </a>
+            
+            <div class="phone-display">
+                <i class="fas fa-phone"></i> 0810 843 6487
+            </div>
+            
+            <div class="tagline">
+                "Health is Wealth — Keep Your Environment Clean!"
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <img src="https://kimi-web-img.moonshot.cn/img/dcassetcdn.com/2ce2a7c61d78d9615e8d3fa35c706ee0fef8e647.jpg" alt="MILMICH FX ACADEMY Logo">
+                    <h3>
+                        MILMICH FX
+                        <span>ACADEMY</span>
+                    </h3>
+                </div>
+                <p>Leading the charge in environmental cleanliness and waste management education. Together, we can build a cleaner, healthier future.</p>
+                
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#why-clean">Why Clean?</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#health">Health Risks</a></li>
+                    <li><a href="#constitution">Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="https://wa.me/2348108436487">Waste Collection</a></li>
+                    <li><a href="https://wa.me/2348108436487">Environmental Cleaning</a></li>
+                    <li><a href="https://wa.me/2348108436487">Recycling Programs</a></li>
+                    <li><a href="https://wa.me/2348108436487">Health Education</a></li>
+                    <li><a href="https://wa.me/2348108436487">Community Advocacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>
+                    <i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp: 0810 843 6487<br><br>
+                    
+                    <i class="fas fa-clock" style="color: var(--accent);"></i> Mon - Sat: 8:00 AM - 6:00 PM
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> 2024 MILMICH FX ACADEMY. All Rights Reserved. | Health is Wealth</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/2348108436487" target="_blank" class="float-whatsapp" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('overlay');
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        // Trigger once on load
+        reveal();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
